@@ -14,6 +14,7 @@ namespace SobelEdgeDetection
     {
       string image = "..\\image.png";
       Mat image = Cv2.ImRead(image);
+      //converting to grayscale
       Mat gray = image.CvtColor(ColorConversionCodes.BGR2GRAY);
       gray.SaveImage("..\\grey.png");
 
@@ -26,6 +27,7 @@ namespace SobelEdgeDetection
       Mat sobelVertical = canny.Sobel(MatType.CV_8U, 1, 0);
       //sobel horizontal lines
       Mat sobelHorizontal = canny.Sobel(MatType.CV_8U, 0, 1);
+      //display in console window
       using (new Window("SobelVertical", WindowMode.AutoSize, sobelVertical))
       {
           Window.WaitKey(0);
